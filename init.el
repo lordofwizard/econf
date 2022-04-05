@@ -29,7 +29,7 @@
  '(custom-safe-themes
    '("bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" "36ca8f60565af20ef4f30783aa16a26d96c02df7b4e54e9900a5138fb33808da" "c9ddf33b383e74dac7690255dd2c3dfa1961a8e8a1d20e401c6572febef61045" default))
  '(package-selected-packages
-   '(treemacs-projectile projectile doom-themes evil-commentary evil-visual-mark-mode treemacs evil elcord ample-theme ## which-key use-package)))
+   '(vterm-toggle vterm treemacs-projectile projectile doom-themes evil-commentary evil-visual-mark-mode treemacs evil elcord ample-theme ## which-key use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -69,7 +69,7 @@
   (when (file-directory-p "~/Documents/dev")
     (setq projectile-project-search-path '("~/Documents/dev")))
   (setq projectile-switch-project-action #'treemacs-projectile))
-
+(setq projectile-project-search-path '("~/Documents/dev" "~/Documents/dev/c/ticc)"))
 ;; My own packages
 (require 'elcord)
 (require 'evil)
