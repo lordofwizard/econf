@@ -29,7 +29,7 @@
  '(custom-safe-themes
    '("bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" "36ca8f60565af20ef4f30783aa16a26d96c02df7b4e54e9900a5138fb33808da" "c9ddf33b383e74dac7690255dd2c3dfa1961a8e8a1d20e401c6572febef61045" default))
  '(package-selected-packages
-   '(doom-themes evil-commentary evil-visual-mark-mode treemacs evil elcord ample-theme ## which-key use-package)))
+   '(treemacs-projectile projectile doom-themes evil-commentary evil-visual-mark-mode treemacs evil elcord ample-theme ## which-key use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -50,6 +50,25 @@
 (setq scroll-conservatively 100)
 (global-display-line-numbers-mode)
 
+
+;; FOR using some packages
+(use-package treemacs
+  :ensure t
+  :bind
+  (:map global-map
+	([f6] . treemacs))
+  :config
+  (setq treemacs-is-never-other-window t))
+
+(use-package projectile
+  :ensure t
+  :config
+  (define-key projectile-mode-map (kbd "C-x p") 'projectile-command-map)
+  (projectile-mode +1)
+  :init
+  (when (file-directory-p "~/Documents/dev")
+    (setq projectile-project-search-path '("~/Documents/dev")))
+  (setq projectile-switch-project-action #'treemacs-projectile))
 
 ;; My own packages
 (require 'elcord)
